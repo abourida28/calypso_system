@@ -1,0 +1,2 @@
+calypso
+-DCATKIN_DEVEL_PREFIX=/home/abourida/Desktop/megaProject/ros/devel -DCMAKE_INSTALL_PREFIX=/home/abourida/Desktop/megaProject/ros/install -G Unix Makefiles
