@@ -80,40 +80,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -134,6 +100,40 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,259 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-calypso/CMakeFiles/calypso_genpy.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_genpy.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_genpy.dir/rule
+calypso/CMakeFiles/_catkin_empty_exported_target.dir/rule:
+	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : calypso/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
-calypso_genpy: calypso/CMakeFiles/calypso_genpy.dir/rule
+_catkin_empty_exported_target: calypso/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
-.PHONY : calypso_genpy
+.PHONY : _catkin_empty_exported_target
 
 # fast build rule for target.
-calypso_genpy/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_genpy.dir/build.make calypso/CMakeFiles/calypso_genpy.dir/build
-.PHONY : calypso_genpy/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : calypso/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: calypso/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/std_msgs_generate_messages_py.dir/build.make calypso/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_generate_messages.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_generate_messages.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_generate_messages.dir/rule
-
-# Convenience name for target.
-calypso_generate_messages: calypso/CMakeFiles/calypso_generate_messages.dir/rule
-
-.PHONY : calypso_generate_messages
-
-# fast build rule for target.
-calypso_generate_messages/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_generate_messages.dir/build.make calypso/CMakeFiles/calypso_generate_messages.dir/build
-.PHONY : calypso_generate_messages/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : calypso/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: calypso/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make calypso/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : calypso/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: calypso/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make calypso/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_genlisp.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_genlisp.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_genlisp.dir/rule
-
-# Convenience name for target.
-calypso_genlisp: calypso/CMakeFiles/calypso_genlisp.dir/rule
-
-.PHONY : calypso_genlisp
-
-# fast build rule for target.
-calypso_genlisp/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_genlisp.dir/build.make calypso/CMakeFiles/calypso_genlisp.dir/build
-.PHONY : calypso_genlisp/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : calypso/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: calypso/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make calypso/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/_calypso_generate_messages_check_deps_joystick.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/_calypso_generate_messages_check_deps_joystick.dir/rule
-.PHONY : calypso/CMakeFiles/_calypso_generate_messages_check_deps_joystick.dir/rule
-
-# Convenience name for target.
-_calypso_generate_messages_check_deps_joystick: calypso/CMakeFiles/_calypso_generate_messages_check_deps_joystick.dir/rule
-
-.PHONY : _calypso_generate_messages_check_deps_joystick
-
-# fast build rule for target.
-_calypso_generate_messages_check_deps_joystick/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/_calypso_generate_messages_check_deps_joystick.dir/build.make calypso/CMakeFiles/_calypso_generate_messages_check_deps_joystick.dir/build
-.PHONY : _calypso_generate_messages_check_deps_joystick/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_generate_messages_cpp.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_generate_messages_cpp.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-calypso_generate_messages_cpp: calypso/CMakeFiles/calypso_generate_messages_cpp.dir/rule
-
-.PHONY : calypso_generate_messages_cpp
-
-# fast build rule for target.
-calypso_generate_messages_cpp/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_generate_messages_cpp.dir/build.make calypso/CMakeFiles/calypso_generate_messages_cpp.dir/build
-.PHONY : calypso_generate_messages_cpp/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_generate_messages_nodejs.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_generate_messages_nodejs.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-calypso_generate_messages_nodejs: calypso/CMakeFiles/calypso_generate_messages_nodejs.dir/rule
-
-.PHONY : calypso_generate_messages_nodejs
-
-# fast build rule for target.
-calypso_generate_messages_nodejs/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_generate_messages_nodejs.dir/build.make calypso/CMakeFiles/calypso_generate_messages_nodejs.dir/build
-.PHONY : calypso_generate_messages_nodejs/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_gencpp.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_gencpp.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_gencpp.dir/rule
-
-# Convenience name for target.
-calypso_gencpp: calypso/CMakeFiles/calypso_gencpp.dir/rule
-
-.PHONY : calypso_gencpp
-
-# fast build rule for target.
-calypso_gencpp/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_gencpp.dir/build.make calypso/CMakeFiles/calypso_gencpp.dir/build
-.PHONY : calypso_gencpp/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_geneus.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_geneus.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_geneus.dir/rule
-
-# Convenience name for target.
-calypso_geneus: calypso/CMakeFiles/calypso_geneus.dir/rule
-
-.PHONY : calypso_geneus
-
-# fast build rule for target.
-calypso_geneus/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_geneus.dir/build.make calypso/CMakeFiles/calypso_geneus.dir/build
-.PHONY : calypso_geneus/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_generate_messages_lisp.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_generate_messages_lisp.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-calypso_generate_messages_lisp: calypso/CMakeFiles/calypso_generate_messages_lisp.dir/rule
-
-.PHONY : calypso_generate_messages_lisp
-
-# fast build rule for target.
-calypso_generate_messages_lisp/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_generate_messages_lisp.dir/build.make calypso/CMakeFiles/calypso_generate_messages_lisp.dir/build
-.PHONY : calypso_generate_messages_lisp/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : calypso/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: calypso/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make calypso/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_generate_messages_eus.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_generate_messages_eus.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-calypso_generate_messages_eus: calypso/CMakeFiles/calypso_generate_messages_eus.dir/rule
-
-.PHONY : calypso_generate_messages_eus
-
-# fast build rule for target.
-calypso_generate_messages_eus/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_generate_messages_eus.dir/build.make calypso/CMakeFiles/calypso_generate_messages_eus.dir/build
-.PHONY : calypso_generate_messages_eus/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_gennodejs.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_gennodejs.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_gennodejs.dir/rule
-
-# Convenience name for target.
-calypso_gennodejs: calypso/CMakeFiles/calypso_gennodejs.dir/rule
-
-.PHONY : calypso_gennodejs
-
-# fast build rule for target.
-calypso_gennodejs/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_gennodejs.dir/build.make calypso/CMakeFiles/calypso_gennodejs.dir/build
-.PHONY : calypso_gennodejs/fast
-
-# Convenience name for target.
-calypso/CMakeFiles/calypso_generate_messages_py.dir/rule:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f CMakeFiles/Makefile2 calypso/CMakeFiles/calypso_generate_messages_py.dir/rule
-.PHONY : calypso/CMakeFiles/calypso_generate_messages_py.dir/rule
-
-# Convenience name for target.
-calypso_generate_messages_py: calypso/CMakeFiles/calypso_generate_messages_py.dir/rule
-
-.PHONY : calypso_generate_messages_py
-
-# fast build rule for target.
-calypso_generate_messages_py/fast:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/calypso_generate_messages_py.dir/build.make calypso/CMakeFiles/calypso_generate_messages_py.dir/build
-.PHONY : calypso_generate_messages_py/fast
+_catkin_empty_exported_target/fast:
+	cd /home/abourida/Desktop/megaProject/ros/build && $(MAKE) -f calypso/CMakeFiles/_catkin_empty_exported_target.dir/build.make calypso/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
 
 # Help Target
 help:
@@ -430,28 +190,12 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... install"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... calypso_genpy"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... calypso_generate_messages"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... calypso_genlisp"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... _calypso_generate_messages_check_deps_joystick"
-	@echo "... calypso_generate_messages_cpp"
-	@echo "... calypso_generate_messages_nodejs"
-	@echo "... calypso_gencpp"
-	@echo "... calypso_geneus"
 	@echo "... list_install_components"
-	@echo "... calypso_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... calypso_generate_messages_eus"
-	@echo "... calypso_gennodejs"
-	@echo "... calypso_generate_messages_py"
+	@echo "... edit_cache"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... rebuild_cache"
+	@echo "... install"
 .PHONY : help
 
 

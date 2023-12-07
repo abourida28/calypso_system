@@ -10,16 +10,16 @@ from calypso.msg import joystick
 SPEED_MULTIPLIER = 100
 
 def listenerCallback(joystickValues):
-    if (abs(joystickValues.x) > abs(joystickValues.y)):
+    if (abs(joystickValues.lx) > abs(joystickValues.ly)):
         # Turn left or right
-        m1 = m3 = m5 = joystickValues.x * SPEED_MULTIPLIER
-        m2 = m4 = m6 = -1 * joystickValues * SPEED_MULTIPLIER
+        m1 = m3 = m5 = joystickValues.lx * SPEED_MULTIPLIER
+        m2 = m4 = m6 = -1 * joystickValues.lx * SPEED_MULTIPLIER
 
     else:
         # Move front or back
-        m1 = m2 = m3 = m4 = m5 = m6 = joystickValues * SPEED_MULTIPLIER
+        m1 = m2 = m3 = m4 = m5 = m6 = joystickValues.ly * SPEED_MULTIPLIER
 
-    rospy.loginfo("m1 = %d \tm2 = %d\tm3 = %d \tm4 = %d\tm5 = %d \tm6 = %d\t" %(m1, m2, m3, m4, m5, m6))
+    rospy.loginfo("m1 = %d \tm2 = %d\nm3 = %d \tm4 = %d\nm5 = %d \tm6 = %d\n\n" %(m1, m2, m3, m4, m5, m6))
 
 def listener():
     rospy.init_node("motorDriver", anonymous=False)

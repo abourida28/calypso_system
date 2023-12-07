@@ -3,6 +3,6 @@ prefix=/home/abourida/Desktop/megaProject/ros/install
 Name: calypso
 Description: Description of calypso
 Version: 0.0.0
-Cflags: -I${prefix}/include
+Cflags: 
 Libs: -L${prefix}/lib 
 Requires: 
