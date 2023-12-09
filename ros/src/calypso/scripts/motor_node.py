@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python3
 
 import rospy
 from calypso.msg import joystick
@@ -54,7 +54,7 @@ def listenerCallback(joystickValues):
         for i in range(6):
             motors[i].setSpeed(speed, joystickValues.ly > 0)
 
-    rospy.loginfo("m1 = %d \tm2 = %d\nm3 = %d \tm4 = %d\nm5 = %d \tm6 = %d\n\n" %(m1, m2, m3, m4, m5, m6))
+    rospy.loginfo("m1 = {m1} \tm2 = {m2}\nm3 = {m3} \tm4 = {m4}\nm5 = {m5} \tm6 = {m6}\n\n")
 
 def listener():
     rospy.init_node("motorDriver", anonymous=False)
