@@ -21,7 +21,9 @@ rosbridge.on('connection', function () {
     console.log('Connection to ROSBridge closed.');
     });
 
-*/     
+*/  
+
+
 
 document.addEventListener('DOMContentLoaded', init);
 
