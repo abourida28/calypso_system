@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/calypso_generate_messages_nodejs"
-  "/home/abourida/Desktop/megaProject/ros/devel/share/gennodejs/ros/calypso/msg/joystick.js"
+  "/home/mahmoudtarek02/calypso_system/ros/devel/share/gennodejs/ros/calypso/msg/joystick.js"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -67,14 +67,14 @@ set(calypso_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(calypso_SOURCE_PREFIX /home/abourida/Desktop/megaProject/ros/src/calypso)
-  set(calypso_DEVEL_PREFIX /home/abourida/Desktop/megaProject/ros/devel)
+  set(calypso_SOURCE_PREFIX /home/mahmoudtarek02/calypso_system/ros/src/calypso)
+  set(calypso_DEVEL_PREFIX /home/mahmoudtarek02/calypso_system/ros/devel)
   set(calypso_INSTALL_PREFIX "")
   set(calypso_PREFIX ${calypso_DEVEL_PREFIX})
 else()
   set(calypso_SOURCE_PREFIX "")
   set(calypso_DEVEL_PREFIX "")
-  set(calypso_INSTALL_PREFIX /home/abourida/Desktop/megaProject/ros/install)
+  set(calypso_INSTALL_PREFIX /home/mahmoudtarek02/calypso_system/ros/install)
   set(calypso_PREFIX ${calypso_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(calypso_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(calypso_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/abourida/Desktop/megaProject/ros/install/lib;/opt/ros/melodic/lib)
+    foreach(path /home/mahmoudtarek02/calypso_system/ros/install/lib;/home/mahmoudtarek02/calypso_system/ros/devel/lib;/opt/ros/melodic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(calypso_EXPORTED_TARGETS "")
+set(calypso_EXPORTED_TARGETS "calypso_generate_messages_cpp;calypso_generate_messages_eus;calypso_generate_messages_lisp;calypso_generate_messages_nodejs;calypso_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${calypso_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   list(APPEND calypso_EXPORTED_TARGETS ${${calypso_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "calypso-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${calypso_DIR}/${extra})

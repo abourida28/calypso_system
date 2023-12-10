@@ -1,29 +1,4 @@
 const deadZoneThreshold = 0.2;
-/*
-const ROSBridgeHost = 'ws://0.0.0.0:9090';
-
-const rosbridge = new ROSLIB.Ros({
-    url: ROSBridgeHost // Replace with your ROSBridge server URL
-    });
-
-rosbridge.on('connection', function(){
-    console.log('Connected to ROSBridge')
-});
-
-
-rosbridge.on('connection', function () {
-    console.log('Connected to ROSBridge.');
-    });
-    rosbridge.on('error', function (error) {
-    console.error('Error connecting to ROSBridge: ' + error);
-    });
-    rosbridge.on('close', function () {
-    console.log('Connection to ROSBridge closed.');
-    });
-
-*/  
-
-
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -51,28 +26,82 @@ function updateGamepadInfo() {
     const ps4Controller = gamepads[0];
 
     if (ps4Controller) {
-    
         console.clear();
         console.log('PS4 Controller Input:');
         console.log('ID:', ps4Controller.id);
 
         console.log('Buttons:');
-        ps4Controller.buttons.forEach((button, index) => {
-            const buttonSymbol = getButtonSymbol(index);
-            console.log(`  ${buttonSymbol}: ${button.pressed}`);
+        const buttons = ps4Controller.buttons.map(button => button.pressed ? 1 : 0);
+        buttons.forEach((value, index) => {
+            console.log(`Button ${index + 1}: ${value}`);
         });
 
-
         console.log('Axes:');
-        const deadZoneAxes = ps4Controller.axes.map((axis) =>
+        const axes = ps4Controller.axes.map((axis) =>
             Math.abs(axis) < deadZoneThreshold ? 0 : axis
         );
-  
-        console.log(`  Left Stick Horizontal: ${applyDeadZone(ps4Controller.axes[0]).toFixed(2)}`);
-        console.log(`  Left Stick Vertical: ${applyDeadZone(ps4Controller.axes[1]).toFixed(2)}`);
-        console.log(`  Right Stick Horizontal: ${applyDeadZone(ps4Controller.axes[2]).toFixed(2)}`);
-        console.log(`  Right Stick Vertical: ${applyDeadZone(ps4Controller.axes[3]).toFixed(2)}`);
-    
+
+        console.log(` Left Stick Horizontal: ${applyDeadZone(axes[0]).toFixed(2)}`);
+        console.log(` Left Stick Vertical: ${applyDeadZone(axes[1]).toFixed(2)}`);
+        console.log(` Right Stick Horizontal: ${applyDeadZone(axes[2]).toFixed(2)}`);
+        console.log(` Right Stick Vertical: ${applyDeadZone(axes[3]).toFixed(2)}`);
+
+        // Create a custom joystick message
+        const joystickMessage = new ROSLIB.Message({
+            button1: buttons[0],
+            button2: buttons[1],
+            button3: buttons[2],
+            button4: buttons[3],
+            button5: buttons[4],
+            button6: buttons[5],
+            button7: buttons[6],
+            button8: buttons[7],
+            button9: buttons[8],
+            button10: buttons[9],
+            button11: buttons[10],
+            button12: buttons[11],
+            button13: buttons[12],
+            button14: buttons[13],
+            button15: buttons[14],
+            button16: buttons[15],
+            axis1: axes[0],
+            axis2: axes[1],
+            axis3: axes[2],
+            axis4: axes[3],
+        });
+
+        // Use WebSocket to communicate with ROSBridge and publish the custom joystick message
+        console.log('Sending joystick message to ROSBridge');
+
+        const rosbridgeHost = 'ws://localhost:9090';
+
+        const rosbridge = new ROSLIB.Ros({
+            url: rosbridgeHost
+        });
+
+        rosbridge.on('connection', function () {
+            console.log('Connected to ROSBridge.');
+        });
+
+        rosbridge.on('error', function (error) {
+            console.error('Error connecting to ROSBridge: ' + error);
+            setTimeout(() => location.reload(), 1000);
+        });
+
+        rosbridge.on('close', function () {
+            console.log('Connection to ROSBridge closed.');
+        });
+
+        const topic = new ROSLIB.Topic({
+            ros: rosbridge,
+            name: '/ps4Controller',
+            messageType: 'calypso/joystick' // Replace with your actual package name and message type
+        });
+
+        // Publish the message and print a message when it's sent
+        topic.publish(joystickMessage, function () {
+            console.log('Joystick message published to ROSBridge');
+        });
 
     } else {
         console.log('PS4 Controller not detected');
@@ -85,46 +114,4 @@ function applyDeadZone(value) {
     return Math.abs(value) < deadZoneThreshold ? 0 : value;
 }
 
-
-function getButtonSymbol(index) {
-    switch (index) {
-        case 0:
-            return 'X';
-        case 1:
-            return 'O';
-        case 2:
-            return '▢';
-        case 3:
-            return '△';
-        case 4:
-            return 'L1';
-        case 5:
-            return 'R1';
-        case 6:
-            return 'L2';
-        case 7:
-            return 'R2';
-        case 8:
-            return 'Share';
-        case 9:
-            return 'Options';
-        case 10:
-            return 'L3';
-        case 11:
-            return 'R3';        
-        case 12:
-            return '↑';
-        case 13:
-            return '↓';
-        case 14:
-            return '←';
-        case 15:
-            return '→';
-        case 16:
-            return 'PS Button'    
-        case 17: 
-            return 'TouchPad';        
-        default:
-            return `Button ${index}`;
-    }
-}
+// calypso/joystick

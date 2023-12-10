@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/abourida/Desktop/megaProject/ros/src
+CMAKE_SOURCE_DIR = /home/mahmoudtarek02/calypso_system/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/abourida/Desktop/megaProject/ros/build
+CMAKE_BINARY_DIR = /home/mahmoudtarek02/calypso_system/ros/build
 
 # Utility rule file for calypso_gennodejs.
 
@@ -63,10 +63,10 @@ calypso/CMakeFiles/calypso_gennodejs.dir/build: calypso_gennodejs
 .PHONY : calypso/CMakeFiles/calypso_gennodejs.dir/build
 
 calypso/CMakeFiles/calypso_gennodejs.dir/clean:
-	cd /home/abourida/Desktop/megaProject/ros/build/calypso && $(CMAKE_COMMAND) -P CMakeFiles/calypso_gennodejs.dir/cmake_clean.cmake
+	cd /home/mahmoudtarek02/calypso_system/ros/build/calypso && $(CMAKE_COMMAND) -P CMakeFiles/calypso_gennodejs.dir/cmake_clean.cmake
 .PHONY : calypso/CMakeFiles/calypso_gennodejs.dir/clean
 
 calypso/CMakeFiles/calypso_gennodejs.dir/depend:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/abourida/Desktop/megaProject/ros/src /home/abourida/Desktop/megaProject/ros/src/calypso /home/abourida/Desktop/megaProject/ros/build /home/abourida/Desktop/megaProject/ros/build/calypso /home/abourida/Desktop/megaProject/ros/build/calypso/CMakeFiles/calypso_gennodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mahmoudtarek02/calypso_system/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mahmoudtarek02/calypso_system/ros/src /home/mahmoudtarek02/calypso_system/ros/src/calypso /home/mahmoudtarek02/calypso_system/ros/build /home/mahmoudtarek02/calypso_system/ros/build/calypso /home/mahmoudtarek02/calypso_system/ros/build/calypso/CMakeFiles/calypso_gennodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : calypso/CMakeFiles/calypso_gennodejs.dir/depend
 

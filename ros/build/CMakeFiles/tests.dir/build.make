@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/abourida/Desktop/megaProject/ros/src
+CMAKE_SOURCE_DIR = /home/mahmoudtarek02/calypso_system/ros/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/abourida/Desktop/megaProject/ros/build
+CMAKE_BINARY_DIR = /home/mahmoudtarek02/calypso_system/ros/build
 
 # Utility rule file for tests.
 
@@ -67,6 +67,6 @@ CMakeFiles/tests.dir/clean:
 .PHONY : CMakeFiles/tests.dir/clean
 
 CMakeFiles/tests.dir/depend:
-	cd /home/abourida/Desktop/megaProject/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/abourida/Desktop/megaProject/ros/src /home/abourida/Desktop/megaProject/ros/src /home/abourida/Desktop/megaProject/ros/build /home/abourida/Desktop/megaProject/ros/build /home/abourida/Desktop/megaProject/ros/build/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mahmoudtarek02/calypso_system/ros/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mahmoudtarek02/calypso_system/ros/src /home/mahmoudtarek02/calypso_system/ros/src /home/mahmoudtarek02/calypso_system/ros/build /home/mahmoudtarek02/calypso_system/ros/build /home/mahmoudtarek02/calypso_system/ros/build/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tests.dir/depend
 

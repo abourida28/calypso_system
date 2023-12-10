@@ -11,24 +11,29 @@ document.addEventListener('keydown', function(event) {
   
 function sendKeyToROS(key) {
   // Use WebSocket to communicate with ROSBridge and publish the key to the 'controller' topic
-  const rosbridgeHost = 'ws://0.0.0.0:9090';
-  
+
+  console.log("sending key to ros bridge")
+
+  //const rosbridgeHost = 'ws://0.0.0.0:9090';
+  const rosbridgeHost = 'ws://localhost:9090';
+
   const rosbridge = new ROSLIB.Ros({
-      url: rosbridgeHost 
-    });
-    rosbridge.on('connection', function () {
-      console.log('Connected to ROSBridge.');
-    });
+    url: rosbridgeHost 
+  });
 
-    rosbridge.on('error', function (error) {
-      console.error('Error connecting to ROSBridge: ' + error);
-      setTimeout(location.reload(), 10)
-    });
+  rosbridge.on('connection', function () {
+    console.log('Connected to ROSBridge.');
+  });
+ 
+  rosbridge.on('error', function (error) {
+    console.error('Error connecting to ROSBridge: ' + error);
+    setTimeout(location.reload(), 10)
+  });
 
-    rosbridge.on('close', function () {
-      console.log('Connection to ROSBridge closed.');
+  rosbridge.on('close', function () { 
+    console.log('Connection to ROSBridge closed.');
       
-    });
+  });
       
   const topic = new ROSLIB.Topic({
       ros: rosbridge,
@@ -39,6 +44,7 @@ function sendKeyToROS(key) {
   const message = new ROSLIB.Message({
       data: key 
     });
+
   topic.publish(message);
   
   const positionTopic = new ROSLIB.Topic({
@@ -48,6 +54,7 @@ function sendKeyToROS(key) {
     });
   
   positionTopic.subscribe(function(message) {
+    console.log("subscribing")
       let msg_p = document.getElementById('msg');
       msg_p.innerHTML = `Received message on ${positionTopic.name} : (${message.x} , ${message.y})`
       let positionDiv = document.getElementById('position');

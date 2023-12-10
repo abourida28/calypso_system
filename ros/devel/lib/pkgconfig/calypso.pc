@@ -1,8 +1,8 @@
-prefix=/home/abourida/Desktop/megaProject/ros/devel
+prefix=/home/mahmoudtarek02/calypso_system/ros/devel
 
 Name: calypso
 Description: Description of calypso
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/mahmoudtarek02/calypso_system/ros/devel/include
 Libs: -L${prefix}/lib 
 Requires: 

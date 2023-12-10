@@ -1,8 +1,8 @@
-# Install script for directory: /home/abourida/Desktop/megaProject/ros/src/calypso
+# Install script for directory: /home/mahmoudtarek02/calypso_system/ros/src/calypso
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/abourida/Desktop/megaProject/ros/install")
+  set(CMAKE_INSTALL_PREFIX "/home/mahmoudtarek02/calypso_system/ros/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,53 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/abourida/Desktop/megaProject/ros/build/calypso/catkin_generated/installspace/calypso.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calypso/msg" TYPE FILE FILES "/home/mahmoudtarek02/calypso_system/ros/src/calypso/msg/joystick.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calypso/cmake" TYPE FILE FILES "/home/mahmoudtarek02/calypso_system/ros/build/calypso/catkin_generated/installspace/calypso-msg-paths.cmake")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/mahmoudtarek02/calypso_system/ros/devel/include/calypso")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/mahmoudtarek02/calypso_system/ros/devel/share/roseus/ros/calypso")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/mahmoudtarek02/calypso_system/ros/devel/share/common-lisp/ros/calypso")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/mahmoudtarek02/calypso_system/ros/devel/share/gennodejs/ros/calypso")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/mahmoudtarek02/calypso_system/ros/devel/lib/python2.7/dist-packages/calypso")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/mahmoudtarek02/calypso_system/ros/devel/lib/python2.7/dist-packages/calypso")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/mahmoudtarek02/calypso_system/ros/build/calypso/catkin_generated/installspace/calypso.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calypso/cmake" TYPE FILE FILES "/home/mahmoudtarek02/calypso_system/ros/build/calypso/catkin_generated/installspace/calypso-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calypso/cmake" TYPE FILE FILES
-    "/home/abourida/Desktop/megaProject/ros/build/calypso/catkin_generated/installspace/calypsoConfig.cmake"
-    "/home/abourida/Desktop/megaProject/ros/build/calypso/catkin_generated/installspace/calypsoConfig-version.cmake"
+    "/home/mahmoudtarek02/calypso_system/ros/build/calypso/catkin_generated/installspace/calypsoConfig.cmake"
+    "/home/mahmoudtarek02/calypso_system/ros/build/calypso/catkin_generated/installspace/calypsoConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calypso" TYPE FILE FILES "/home/abourida/Desktop/megaProject/ros/src/calypso/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/calypso" TYPE FILE FILES "/home/mahmoudtarek02/calypso_system/ros/src/calypso/package.xml")
 endif()
 

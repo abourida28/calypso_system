@@ -8,14 +8,32 @@ import struct
 
 
 class joystick(genpy.Message):
-  _md5sum = "4ea7417bf6c4ea7f9c68a7b66f76e96c"
+  _md5sum = "19b7fda0b5033f6f858df0d5f4d6c706"
   _type = "calypso/joystick"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """float64 lx
-float64 ly
+  _full_text = """int32 button1
+int32 button2
+int32 button3
+int32 button4
+int32 button5
+int32 button6
+int32 button7
+int32 button8
+int32 button9
+int32 button10
+int32 button11
+int32 button12
+int32 button13
+int32 button14
+int32 button15
+int32 button16
+float32 axis1
+float32 axis2
+float32 axis3
+float32 axis4
 """
-  __slots__ = ['lx','ly']
-  _slot_types = ['float64','float64']
+  __slots__ = ['button1','button2','button3','button4','button5','button6','button7','button8','button9','button10','button11','button12','button13','button14','button15','button16','axis1','axis2','axis3','axis4']
+  _slot_types = ['int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','int32','float32','float32','float32','float32']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +43,7 @@ float64 ly
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       lx,ly
+       button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13,button14,button15,button16,axis1,axis2,axis3,axis4
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -34,13 +52,67 @@ float64 ly
     if args or kwds:
       super(joystick, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.lx is None:
-        self.lx = 0.
-      if self.ly is None:
-        self.ly = 0.
+      if self.button1 is None:
+        self.button1 = 0
+      if self.button2 is None:
+        self.button2 = 0
+      if self.button3 is None:
+        self.button3 = 0
+      if self.button4 is None:
+        self.button4 = 0
+      if self.button5 is None:
+        self.button5 = 0
+      if self.button6 is None:
+        self.button6 = 0
+      if self.button7 is None:
+        self.button7 = 0
+      if self.button8 is None:
+        self.button8 = 0
+      if self.button9 is None:
+        self.button9 = 0
+      if self.button10 is None:
+        self.button10 = 0
+      if self.button11 is None:
+        self.button11 = 0
+      if self.button12 is None:
+        self.button12 = 0
+      if self.button13 is None:
+        self.button13 = 0
+      if self.button14 is None:
+        self.button14 = 0
+      if self.button15 is None:
+        self.button15 = 0
+      if self.button16 is None:
+        self.button16 = 0
+      if self.axis1 is None:
+        self.axis1 = 0.
+      if self.axis2 is None:
+        self.axis2 = 0.
+      if self.axis3 is None:
+        self.axis3 = 0.
+      if self.axis4 is None:
+        self.axis4 = 0.
     else:
-      self.lx = 0.
-      self.ly = 0.
+      self.button1 = 0
+      self.button2 = 0
+      self.button3 = 0
+      self.button4 = 0
+      self.button5 = 0
+      self.button6 = 0
+      self.button7 = 0
+      self.button8 = 0
+      self.button9 = 0
+      self.button10 = 0
+      self.button11 = 0
+      self.button12 = 0
+      self.button13 = 0
+      self.button14 = 0
+      self.button15 = 0
+      self.button16 = 0
+      self.axis1 = 0.
+      self.axis2 = 0.
+      self.axis3 = 0.
+      self.axis4 = 0.
 
   def _get_types(self):
     """
@@ -55,7 +127,7 @@ float64 ly
     """
     try:
       _x = self
-      buff.write(_get_struct_2d().pack(_x.lx, _x.ly))
+      buff.write(_get_struct_16i4f().pack(_x.button1, _x.button2, _x.button3, _x.button4, _x.button5, _x.button6, _x.button7, _x.button8, _x.button9, _x.button10, _x.button11, _x.button12, _x.button13, _x.button14, _x.button15, _x.button16, _x.axis1, _x.axis2, _x.axis3, _x.axis4))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -70,8 +142,8 @@ float64 ly
       end = 0
       _x = self
       start = end
-      end += 16
-      (_x.lx, _x.ly,) = _get_struct_2d().unpack(str[start:end])
+      end += 80
+      (_x.button1, _x.button2, _x.button3, _x.button4, _x.button5, _x.button6, _x.button7, _x.button8, _x.button9, _x.button10, _x.button11, _x.button12, _x.button13, _x.button14, _x.button15, _x.button16, _x.axis1, _x.axis2, _x.axis3, _x.axis4,) = _get_struct_16i4f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -85,7 +157,7 @@ float64 ly
     """
     try:
       _x = self
-      buff.write(_get_struct_2d().pack(_x.lx, _x.ly))
+      buff.write(_get_struct_16i4f().pack(_x.button1, _x.button2, _x.button3, _x.button4, _x.button5, _x.button6, _x.button7, _x.button8, _x.button9, _x.button10, _x.button11, _x.button12, _x.button13, _x.button14, _x.button15, _x.button16, _x.axis1, _x.axis2, _x.axis3, _x.axis4))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -101,8 +173,8 @@ float64 ly
       end = 0
       _x = self
       start = end
-      end += 16
-      (_x.lx, _x.ly,) = _get_struct_2d().unpack(str[start:end])
+      end += 80
+      (_x.button1, _x.button2, _x.button3, _x.button4, _x.button5, _x.button6, _x.button7, _x.button8, _x.button9, _x.button10, _x.button11, _x.button12, _x.button13, _x.button14, _x.button15, _x.button16, _x.axis1, _x.axis2, _x.axis3, _x.axis4,) = _get_struct_16i4f().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -111,9 +183,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2d = None
-def _get_struct_2d():
-    global _struct_2d
-    if _struct_2d is None:
-        _struct_2d = struct.Struct("<2d")
-    return _struct_2d
+_struct_16i4f = None
+def _get_struct_16i4f():
+    global _struct_16i4f
+    if _struct_16i4f is None:
+        _struct_16i4f = struct.Struct("<16i4f")
+    return _struct_16i4f
